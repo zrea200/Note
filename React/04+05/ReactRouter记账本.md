@@ -455,15 +455,17 @@ export default Month
 ```jsx
 import dayjs from "dayjs"
 
-const [currentMonth, setCurrentMonth] = useState(() => {
-    return dayjs().format('YYYY-MM')
-})
-
-const dateConfirm = (date) => {
-  setDateVisible(false)
-  const month = dayjs(date).format('YYYY-MM')
-  setCurrentMonth(month)
-}
+  // 控制弹窗的打开和关闭
+  const [dateVisible, setDateVisible] = useState(false);
+  // 控制时间显示
+  const [currentDate, setCurrentDate] = useState(() => {
+    return dayjs().format("YYYY-MM");
+  });
+  const onConfirm = (date) => {
+    setDateVisible(false);
+    const formatDate = dayjs(date).format("YYYY-MM");
+    setCurrentDate(formatDate);
+  };
 ```
 
 ## 4. 统计功能实现
